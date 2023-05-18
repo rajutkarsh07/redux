@@ -114,6 +114,13 @@ const icecreamReducer = (state = initialIcecreamState, action) => {
         ...state,
         numOfIcecream: state.numOfIcecream + action.payload,
       };
+
+    //icecream reducer will listen to other action type but it is not possible in redux toolkit
+    case CAKE_ORDERED:
+      return {
+        ...state,
+        numOfIcecream: state.numOfIcecream - 1,
+      };
     default:
       return state;
   }
